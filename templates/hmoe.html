@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>College Social App</title>
+</head>
+<body>
+    <h1>Welcome, {{ session['username'] }}</h1>
+    <a href="/logout">Logout</a>
+    <form action="/create_post" method="POST">
+        <textarea name="content" placeholder="What's on your mind?" required></textarea>
+        <button type="submit">Post</button>
+    </form>
+    <h2>Posts</h2>
+    <ul>
+        {% for post in posts %}
+        <li><strong>{{ post[2] }}</strong>: {{ post[0] }} <small>{{ post[1] }}</small></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
